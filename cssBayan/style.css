@@ -4,9 +4,18 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+.checkbox {
+    display: none;
+}
+
+h1 {
+    padding: 0.3em;
+    margin: 0;
+}
+
 .main-wrapper {
     background-color: #444444;
-    margin: 0 auto;
+    margin: 3em auto 0;
     max-width: 75%;
 }
 
@@ -14,16 +23,33 @@ body {
     opacity: 0;
     height: 0;
     overflow: hidden;
-    transition: all 800ms ease;
+    transition: 700ms cubic-bezier(.8,-0.19,.3,1.27);
 }
 
-.checkbox:checked ~ .tab-content {
+.checkbox:checked ~ .tab-content,
+/*.checkbox:hover + .tab-content,*/
+.tab-name:hover .tab-content
+    {
     height: 5em;
     opacity: 1;
     padding: 2em 0;
     background-color: aqua;
     margin-top: 1em;
 }
+
+.fa-solid {
+    font-size: 1.3em;
+    color: #222222;
+    transition: 700ms cubic-bezier(.8,-0.19,.3,1.27);
+}
+
+.tab-name:hover .fa-solid,
+.checkbox:checked ~ .name-wrapper .fa-solid {
+    transform: rotate(90deg);
+}
+
+
+
 
 .tab-name {
     display: block;
@@ -31,15 +57,18 @@ body {
     background-color: #666666;
     cursor: pointer;
 }
-.checkbox:hover + .tab-content {
-    height: 5em;
-    opacity: 1;
-    padding: 2em 0;
-    background-color: aqua;
-    margin-top: 1em;
+
+.name-wrapper {
+    display: flex;
+    user-select: none;
+    pointer-events: none;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.checkbox {
-    visibility: hidden;
-}
+
+
+
+
+
 
