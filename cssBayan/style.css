@@ -108,7 +108,7 @@ h1 {
     color: #0099FF;
     margin-top: 7px;
 
-    transition: all 300ms ease;
+    transition: all 300ms ease, color 500ms ease-out;
 }
 
 .tab:active .name-wrapper {
