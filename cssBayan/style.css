@@ -15,7 +15,7 @@ h1 {
 
 .main-wrapper {
     margin: 0 auto 0;
-    max-width: 90%;
+    max-width: 95%;
     border-radius: 0.8em;
     overflow: hidden;
     padding-bottom: 1.2em;
@@ -127,17 +127,15 @@ body {
     background-color: var(--c4);        /*Заголвоок активного таба*/
     color: #020202;                   /*Текст активного таба*/
 }
-.checkbox:active ~ .name-wrapper,
-.checkbox:active ~ .name-wrapper .fa-solid {
+
+.tab:active .name-wrapper .name-text,
+.tab:active .name-wrapper .fa-solid {
     color: #9AA841;                    /*При зажатии*/
 }
 
-/*
-.tab:active .name-wrapper,
-.tab:active .name-wrapper .fa-solid {
-    color: #0099FF;
-}
-*/
+
+
+
 
 :root {
     --c1: #a7414a;
@@ -185,6 +183,15 @@ body {
 
 /*320x568, tablet 820x1180, desktop 1920×1080*/
 
-@media (max-width: 1250px) {
-
+@media (min-width: 1240px) {
+    body {
+        padding-right: calc(1.25em - (100vw - 100%)); /*dynamic padding for scroll-bar*/
+    }
+    .main-wrapper {
+        width: 50%;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 18em;
+        /*padding: 2em 0;*/ /*desktop*/
+    }
 }
