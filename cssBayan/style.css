@@ -1,5 +1,5 @@
 body {
-    background-color: #777777;
+    background-color: var(--c2);
     font-family: "Poppins", sans-serif;
     padding-right: calc(1.25em - (100vw - 100%)); /*dynamic padding for scroll-bar*/
 }
@@ -17,9 +17,10 @@ h1 {
 .main-wrapper {
     background-color: #444444;
     margin: 0 auto 0;
-    max-width: 50%;
-    border-radius: 10px;
+    max-width: 40%;
+    border-radius: 0.8em;
     overflow: hidden;
+    padding-bottom: 1.2em;
 }
 
 .tab-content {
@@ -27,26 +28,20 @@ h1 {
     height: 0;
     overflow: hidden;
 
-    /*transition: all 400ms ease-in, transform 400ms ease, opacity 400ms step-start, border 1s step-start;*/
     transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, border 1s step-start;
     /*transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, opacity 400ms step-start, border 1s step-start;*/
+    /*transition: all 500ms ease;*/
 }
 
-
-
-.checkbox:checked ~ .tab-content,
-.tab-name:hover .tab-content
-    {
-    height: 18em;/*13 is good for mobile*/
+.checkbox:checked ~ .tab-content {
+    height: 13em;
     opacity: 1;
     padding: 2em 0;
     background-color: #447777;
 }
 
 .tab:active .tab-content {
-    /*transform: scale(1.1) rotate(1deg);*/
     opacity: 0.8;
-
     transform: scaleX(1.1);
 
     border-left: 0.5em solid;
@@ -54,36 +49,20 @@ h1 {
     border-color: #444444d5;
 }
 
-
-
-
-
-
-.checkbox:checked ~ .name-wrapper,
-.checkbox:hover + .name-wrapper
-    {
-    background-color: rgb(165, 100, 100);
+.checkbox:checked ~ .name-wrapper {
+    background-color: #a56464;
     opacity: 1;
     color: #020202;
-}
-
-.bayan-wrapper:hover .name-wrapper {
-    color: #020202;
-}
-
-.bayan-wrapper:hover .fa-solid {
-    opacity: 1;
 }
 
 .fa-solid {
     font-size: 1.3em;
     color: #222222;
     transition: 700ms cubic-bezier(.8,-0.19,.3,1.27);
-    transition: all 400ms ease-in, opacity 0s ease;
+    transition: all 400ms ease-in, opacity 0s ease, color 300ms ease-out;
     opacity: 0;
 }
 
-.tab-name:hover .fa-solid,
 .checkbox:checked ~ .name-wrapper .fa-solid {
     transform: rotate(90deg);
 }
@@ -100,46 +79,120 @@ h1 {
     pointer-events: none;
     justify-content: space-between;
     align-items: center;
-
     padding: 0.8em;
-
-    opacity: 0.9;
-
     color: #0099FF;
     margin-top: 7px;
-
-    transition: all 300ms ease, color 500ms ease-out;
+    transition: all 300ms ease, color 300ms ease-out;
 }
 
-.tab:active .name-wrapper {
+.tab:active .name-wrapper,
+.tab:active .name-wrapper .fa-solid
+    {
     color: #0099FF; /*#0099FF*/
 }
 
 .tab-content {
     width: 50%;
-
     background-repeat: no-repeat;
     margin: 0 auto;
     background-position: center;
     background-position-y: center;
-
     background-size: cover;
 }
 
 .tab-content-1 {
-    background-image: url(gifs/kermit-falling.gif);
+    background-image: url(gifs/code-monkey-checkmate-digital.gif);
 }
 .tab-content-2 {
-    background-image: url(gifs/dog-alo.gif);
+    background-image: url(gifs/gorin.gif);
 }
 .tab-content-3 {
-    background-image: url(gifs/dumb-stupid.gif);
-}
-.tab-content-4 {
     background-image: url(gifs/why-are-you-why-are-you-gay.gif);
 }
+.tab-content-4 {
+    background-image: url(gifs/kermit-falling.gif);
+}
 .tab-content-5 {
-    background-image: url(gifs/sewerslvt-jvne.gif);
+    background-image: url(gifs/sewer2.gif);
 }
 
 
+
+
+body {
+    background-color: var(--c5);        /*Задний фон документа*/
+}
+.main-wrapper {
+    background-color: var(--c3);        /*Заголовок баяна*/
+}
+.bayan-wrapper {
+    background-color: var(--c2);        /*Разделители табов*/
+}
+.tab-name {
+    background-color: var(--c2);        /*Фон за картинкой внутри таба*/
+}
+.name-wrapper {
+    background-color: var(--c1);        /*Заголвоок неактивного таба*/
+}
+.name-wrapper {
+    color: var(--c4);                   /*Текст неактивного таба*/
+    color: #9AA841;
+    font-weight: 700;
+}
+.checkbox:checked ~ .name-wrapper {
+    background-color: var(--c4);        /*Заголвоок активного таба*/
+}
+.checkbox:active ~ .name-wrapper,
+.checkbox:active ~ .name-wrapper .fa-solid {
+    color: #9AA841;                    /*При зажатии*/
+}
+
+:root {
+    --c1: #a7414a;
+    --c2: #282726;
+    --c3: #6a8a82;
+    --c4: #a37c27;
+    --c5: #563838;
+}
+
+
+
+
+
+
+
+
+
+
+@media (hover: hover) {
+    .tab-name:hover .tab-content {
+        height: 13em;
+        opacity: 1;
+        padding: 2em 0;
+        background-color: #447777;
+    }
+    .checkbox:hover + .name-wrapper {
+        background-color: #a56464;
+        opacity: 1;
+        color: #020202;
+    }
+    .bayan-wrapper:hover .name-wrapper {
+        color: #020202;
+    }
+    .bayan-wrapper:hover .fa-solid {
+        opacity: 1;
+    }
+    .tab-name:hover .fa-solid {
+    transform: rotate(90deg);
+    }
+}
+
+
+
+
+
+/*320x568, tablet 820x1180, desktop 1920×1080*/
+
+@media (max-width: 1250px) {
+
+}
