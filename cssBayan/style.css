@@ -25,7 +25,6 @@ h1 {
     opacity: 0;
     height: 0;
     overflow: hidden;
-    /*transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, opacity 400ms step-start, border 1s step-start;*/
     transition: all 500ms ease, transform 400ms ease, border 1s step-start;
 
     background-repeat: no-repeat;
@@ -64,7 +63,7 @@ h1 {
     cursor: pointer;
     font-weight: 700;
 
-    margin-top: 7px;
+    margin-top: 0.3em;
     transition: all 300ms ease, color 300ms ease-out;
 }
 
