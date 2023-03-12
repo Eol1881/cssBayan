@@ -1,6 +1,5 @@
 body {
     font-family: "Poppins", sans-serif;
-    /*padding-right: calc(1.25em - (100vw - 100%));*/ /*dynamic padding for scroll-bar*/ /*desktop*/
 }
 
 .checkbox {
@@ -26,25 +25,24 @@ h1 {
     opacity: 0;
     height: 0;
     overflow: hidden;
-    transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, border 1s step-start;
     /*transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, opacity 400ms step-start, border 1s step-start;*/
     transition: all 500ms ease, transform 400ms ease, border 1s step-start;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+    background-size: contain;
+    cursor: pointer;
 }
 
 .checkbox:checked ~ .tab-content {
-    height: 9em;
+    height: 13em;
     opacity: 1;
-    /*padding: 2em 0;*/ /*desktop*/
-    /*background-color: #447777; /*backup color if no background img found*/
 }
 
 .tab:active .tab-content {
-    opacity: 0.7;
+    opacity: 0.5;
     transform: scaleX(1.1);
-
-    border-left: 0.5em solid;
-    border-right: 0.5em solid;
-    border-color: #c92525d5;
 }
 
 .fa-solid {
@@ -70,21 +68,11 @@ h1 {
     transition: all 300ms ease, color 300ms ease-out;
 }
 
-.tab-content {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-
-
 .tab-content-1 {
     background-image: url(gifs/code-monkey-checkmate-digital.gif);
 }
 .tab-content-2 {
-    background-image: url(gifs/gorin.gif);
+    background-image: url(gifs/dumb-stupid.gif);
 }
 .tab-content-3 {
     background-image: url(gifs/why-are-you-why-are-you-gay.gif);
@@ -127,28 +115,11 @@ body {
 }
 /*#endregion ---------------------------------------------- COLORS --------------------------------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (hover: hover) {
     .tab-name:hover ~ .tab-content,
     .tab:hover .tab-content {
-        height: 14em;
+        height: 12em;
         opacity: 1;
-    }
-    .checkbox:hover + .tab-name {
-        background-color: #a56464;
-        color: #020202;
     }
     .bayan-wrapper:hover .tab-name {
         color: #020202;
@@ -156,30 +127,53 @@ body {
     .bayan-wrapper:hover .fa-solid {
         opacity: 1;
     }
+    .bayan-wrapper:hover .tab-name {
+        background-color: var(--c1);
+    }
+    .checkbox:hover + .tab-name {
+        background-color: #a56464;
+        color: #020202;
+    }
     .tab:hover .fa-solid {
         transform: rotate(90deg);
     }
 }
 
+@media (min-width: 450px) {
+    body {
+        font-size: 1.1em;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 18em;
+    }
+}
 
+@media (min-width: 820px) {
+    body {
+        font-size: 1.2em;
+    }
+    .main-wrapper {
+        width: 80%;
+    }
+}
 
-/*320x568, tablet 820x1180, desktop 1920×1080*/
-
-@media (min-width: 1240px) {
+@media (min-width: 1080px) {
     body {
         padding-right: calc(1.25em - (100vw - 100%)); /*dynamic padding for scroll-bar*/
     }
     .main-wrapper {
-        width: 50%;
+        width: 60%;
     }
     .checkbox:checked ~ .tab-content {
-        height: 18em;
-        /*padding: 2em 0;*/ /*desktop*/
+        height: 15em;
     }
 }
 
-
-
-
-
-
+@media (min-width: 1600px) {
+    .main-wrapper {
+        width: 45%;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 12em;
+    }
+}
