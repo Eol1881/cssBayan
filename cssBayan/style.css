@@ -1,0 +1,178 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.checkbox {
+    display: none;
+}
+
+h1 {
+    padding: 0.3em;
+    margin: 0;
+    user-select: none;
+}
+
+.main-wrapper {
+    margin: 0 auto 0;
+    max-width: 95%;
+    border-radius: 0.8em;
+    overflow: hidden;
+    padding-bottom: 1.2em;
+}
+
+.tab-content {
+    display: block;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 500ms ease, transform 400ms ease, border 1s step-start;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.checkbox:checked ~ .tab-content {
+    height: 13em;
+    opacity: 1;
+}
+
+.tab:active .tab-content {
+    opacity: 0.5;
+    transform: scaleX(1.1);
+}
+
+.fa-solid {
+    font-size: 1.3em;
+    color: #222222;
+    transition: 700ms cubic-bezier(.8,-0.19,.3,1.27);
+    transition: all 400ms ease-in, opacity 0s ease, color 300ms ease-out;
+    opacity: 0;
+}
+
+.checkbox:checked ~ .tab-name .fa-solid {
+    transform: rotate(90deg);
+}
+
+.tab-name {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em;
+    cursor: pointer;
+    font-weight: 700;
+
+    margin-top: 0.3em;
+    transition: all 300ms ease, color 300ms ease-out;
+}
+
+.tab-content-1 {
+    background-image: url(gifs/code-monkey-checkmate-digital.gif);
+}
+.tab-content-2 {
+    background-image: url(gifs/dumb-stupid.gif);
+}
+.tab-content-3 {
+    background-image: url(gifs/why-are-you-why-are-you-gay.gif);
+}
+.tab-content-4 {
+    background-image: url(gifs/kermit-falling.gif);
+}
+.tab-content-5 {
+    background-image: url(gifs/sewer2.gif);
+}
+
+/*#region colors -------------------------------------------- COLORS --------------------------------------------*/
+:root {
+    --c1: #a7414a;
+    --c2: #282726;
+    --c3: #6a8a82;
+    --c4: #a37c27;
+    --c5: #563838;
+}
+body {
+    background-color: var(--c5);        /*Задний фон всего документа*/
+}
+.main-wrapper {
+    background-color: var(--c3);        /*Заголовок*/
+}
+.bayan-wrapper {
+    background-color: var(--c2);        /*Фон за картинкой внутри таба + Разделители табов*/
+}
+.tab-name {
+    background-color: var(--c1);        /*Заголвоок неактивного таба*/
+    color: #9AA841;                   /*Текст неактивного таба*/
+}
+.checkbox:checked ~ .tab-name {
+    background-color: var(--c4);        /*Заголвоок активного таба*/
+    color: #020202;                   /*Текст активного таба*/
+}
+.tab:active .name-text,
+.tab:active .fa-solid {
+    color: #9AA841;                    /*При зажатии*/
+}
+/*#endregion ---------------------------------------------- COLORS --------------------------------------------*/
+
+@media (hover: hover) {
+    .tab-name:hover ~ .tab-content,
+    .tab:hover .tab-content {
+        height: 12em;
+        opacity: 1;
+    }
+    .bayan-wrapper:hover .tab-name {
+        color: #020202;
+    }
+    .bayan-wrapper:hover .fa-solid {
+        opacity: 1;
+    }
+    .bayan-wrapper:hover .tab-name {
+        background-color: var(--c1);
+    }
+    .checkbox:hover + .tab-name {
+        background-color: #a56464;
+        color: #020202;
+    }
+    .tab:hover .fa-solid {
+        transform: rotate(90deg);
+    }
+}
+
+@media (min-width: 450px) {
+    body {
+        font-size: 1.1em;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 18em;
+    }
+}
+
+@media (min-width: 820px) {
+    body {
+        font-size: 1.2em;
+    }
+    .main-wrapper {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1080px) {
+    body {
+        padding-right: calc(1.25em - (100vw - 100%)); /*dynamic padding for scroll-bar*/
+    }
+    .main-wrapper {
+        width: 60%;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 15em;
+    }
+}
+
+@media (min-width: 1600px) {
+    .main-wrapper {
+        width: 45%;
+    }
+    .checkbox:checked ~ .tab-content {
+        height: 12em;
+    }
+}
