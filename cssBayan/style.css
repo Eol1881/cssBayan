@@ -22,23 +22,24 @@ h1 {
 }
 
 .tab-content {
+    display: block;
     opacity: 0;
     height: 0;
     overflow: hidden;
     transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, border 1s step-start;
     /*transition: all 700ms cubic-bezier(.8,-0.19,.3,1.27), transform 400ms ease, opacity 400ms step-start, border 1s step-start;*/
-    /*transition: all 500ms ease;*/
+    transition: all 500ms ease, transform 400ms ease, border 1s step-start;
 }
 
 .checkbox:checked ~ .tab-content {
     height: 9em;
     opacity: 1;
     /*padding: 2em 0;*/ /*desktop*/
-    background-color: #447777; /*backup color if no background img found*/
+    /*background-color: #447777; /*backup color if no background img found*/
 }
 
 .tab:active .tab-content {
-    opacity: 0.8;
+    opacity: 0.7;
     transform: scaleX(1.1);
 
     border-left: 0.5em solid;
@@ -54,34 +55,30 @@ h1 {
     opacity: 0;
 }
 
-.checkbox:checked ~ .name-wrapper .fa-solid {
+.checkbox:checked ~ .tab-name .fa-solid {
     transform: rotate(90deg);
 }
 
 .tab-name {
-    display: block;
-    cursor: pointer;
-}
-
-.name-wrapper {
     display: flex;
-    user-select: none;
-    pointer-events: none;
     justify-content: space-between;
-    align-items: center;
     padding: 0.8em;
+    cursor: pointer;
+    font-weight: 700;
+
     margin-top: 7px;
     transition: all 300ms ease, color 300ms ease-out;
 }
 
 .tab-content {
-    width: 50%;
     background-repeat: no-repeat;
-    margin: 0 auto;
     background-position: center;
     background-position-y: center;
-    background-size: cover;
+    background-size: contain;
+    cursor: pointer;
 }
+
+
 
 .tab-content-1 {
     background-image: url(gifs/code-monkey-checkmate-digital.gif);
@@ -99,44 +96,7 @@ h1 {
     background-image: url(gifs/sewer2.gif);
 }
 
-
-
-
-body {
-    background-color: var(--c5);        /*Задний фон документа*/
-}
-.main-wrapper {
-    background-color: var(--c3);        /*Заголовок баяна*/
-}
-.bayan-wrapper {
-    background-color: var(--c2);        /*Разделители табов*/
-}
-.tab-name {
-    background-color: var(--c2);        /*Фон за картинкой внутри таба*/
-}
-.name-wrapper {
-    background-color: var(--c1);        /*Заголвоок неактивного таба*/
-    color: #020202;                   /*Текст неактивного таба*/
-}
-.name-wrapper {
-    color: var(--c4);                   /*Текст неактивного таба*/
-    color: #9AA841;
-    font-weight: 700;
-}
-.checkbox:checked ~ .name-wrapper {
-    background-color: var(--c4);        /*Заголвоок активного таба*/
-    color: #020202;                   /*Текст активного таба*/
-}
-
-.tab:active .name-wrapper .name-text,
-.tab:active .name-wrapper .fa-solid {
-    color: #9AA841;                    /*При зажатии*/
-}
-
-
-
-
-
+/*#region colors -------------------------------------------- COLORS --------------------------------------------*/
 :root {
     --c1: #a7414a;
     --c2: #282726;
@@ -144,6 +104,32 @@ body {
     --c4: #a37c27;
     --c5: #563838;
 }
+body {
+    background-color: var(--c5);        /*Задний фон всего документа*/
+}
+.main-wrapper {
+    background-color: var(--c3);        /*Заголовок*/
+}
+.bayan-wrapper {
+    background-color: var(--c2);        /*Фон за картинкой внутри таба + Разделители табов*/
+}
+.tab-name {
+    background-color: var(--c1);        /*Заголвоок неактивного таба*/
+    color: #9AA841;                   /*Текст неактивного таба*/
+}
+.checkbox:checked ~ .tab-name {
+    background-color: var(--c4);        /*Заголвоок активного таба*/
+    color: #020202;                   /*Текст активного таба*/
+}
+.tab:active .name-text,
+.tab:active .fa-solid {
+    color: #9AA841;                    /*При зажатии*/
+}
+/*#endregion ---------------------------------------------- COLORS --------------------------------------------*/
+
+
+
+
 
 
 
@@ -155,29 +141,25 @@ body {
 
 
 @media (hover: hover) {
-    .tab-name:hover .tab-content {
-        height: 13em;
+    .tab-name:hover ~ .tab-content,
+    .tab:hover .tab-content {
+        height: 14em;
         opacity: 1;
-        padding: 2em 0;
-        background-color: #447777;
     }
-    .checkbox:hover + .name-wrapper {
+    .checkbox:hover + .tab-name {
         background-color: #a56464;
-        opacity: 1;
         color: #020202;
     }
-    .bayan-wrapper:hover .name-wrapper {
+    .bayan-wrapper:hover .tab-name {
         color: #020202;
     }
     .bayan-wrapper:hover .fa-solid {
         opacity: 1;
     }
-    .tab-name:hover .fa-solid {
-    transform: rotate(90deg);
+    .tab:hover .fa-solid {
+        transform: rotate(90deg);
     }
 }
-
-
 
 
 
@@ -195,3 +177,9 @@ body {
         /*padding: 2em 0;*/ /*desktop*/
     }
 }
+
+
+
+
+
+
